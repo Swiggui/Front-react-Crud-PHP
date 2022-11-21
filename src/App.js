@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import './Styles/StylesGeneral.css';
+import './Styles/StylesGeneralPagesWithContent.css';
+import './Styles/StyleLorem.css';
+import React, {Fragment} from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Inicio from './Pages/Home';
+import Lorem from './Pages/Lorem';
+import Contactanos from './Pages/ContactUs';
+import AboutUs from './Pages/AboutUs';
+import Contenidos from './Pages/content/Contenidos';
+import Musica from './Pages/content/Music';
+import Series from './Pages/content/Series';
+import ListUsers from './Pages/content/Users/ListUsers';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Router>
+        <Routes>
+          <Route path="/" exact element={<Inicio/>}/>
+          <Route path="/Lorem" exact element={<Lorem/>}/>
+          <Route path="/ContactUs" exact element={<Contactanos/>}/>
+          <Route path='/AboutUs' exact element={<AboutUs/>}/>
+          <Route path='/Contents' exact element={<Contenidos/>}/>
+          <Route path='/Music' exact element={<Musica/>}/>
+          <Route path='/Series' exact element={<Series/>}/>
+          <Route path='/Users' exact element={<ListUsers/>}/>
+        </Routes>
+      </Router>
+    </Fragment>
   );
 }
 
