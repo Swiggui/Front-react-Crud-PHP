@@ -21,7 +21,7 @@ const EditUsers = () => {
         telefono: ""
     });
 
-    const { id_usuario, nombre,  apellido, usuario, contrasena, rol, correo, telefono } = user;
+    const { nombre,  apellido, usuario, contrasena, rol, correo, telefono } = user;
 
     const loadUsers = async () => {
         const response = await ApiInvoke.invokeGET("/users?id=" + id);

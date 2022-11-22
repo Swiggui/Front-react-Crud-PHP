@@ -14,7 +14,7 @@ const CreateUsers = () => {
         telefono: ""
     });
 
-    const { nombre,  apellido, usuario, contrasena, rol, correo, telefono } = user;
+    const { nombre, apellido, usuario, contrasena, rol, correo, telefono } = user;
     const onChange = (e) => {
         setUser({
             ...user,
@@ -22,7 +22,11 @@ const CreateUsers = () => {
         });
     }
 
-    const createUser = async() => {
+    useEffect(()=>{
+        document.getElementById("nombre").focus();
+    }, []);
+
+    const createUser = async () => {
         const data = {
             name: user.nombre,
             lastname: user.apellido,
@@ -34,8 +38,18 @@ const CreateUsers = () => {
         }
         console.log(data);
         const response = await ApiInvoke.invokePOST("/users", data);
-        if(response.status === "ok"){
+        if (response.status === "ok") {
             alert("Usuario creado exitosamente");
+
+            setUser({
+                nombre: "",
+                apellido: "",
+                usuario: "",
+                contrasena: "",
+                rol: "",
+                correo: "",
+                telefono: ""
+            })
         }
     }
 
@@ -151,7 +165,7 @@ const CreateUsers = () => {
                                 />
                             </div>
                         </div>
-                        <button type="submit" className="btn btn-outline-success d-block mx-auto w-100 p-3">Editar Usuario</button>
+                        <button type="submit" className="btn btn-outline-success d-block mx-auto w-100 p-3">Crear Usuario</button>
                     </form>
                 </div>
             </div>

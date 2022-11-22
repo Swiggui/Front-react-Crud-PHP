@@ -2,6 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const NavbarLogged = () => {
+
+    const onClick= () =>{
+        localStorage.removeItem("user");
+        window.location.href="/";
+    }
     return (
         <div>
             <header className="w-100 position-Sticky">
@@ -27,6 +32,9 @@ const NavbarLogged = () => {
                                 </li>
                                 <li className="nav-item">
                                     <Link to={"/Users"} className="btn btn-primary w-100 px-5 py-2">Gestionar Usuarios</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <button onClick={onClick} className="btn btn-outline-danger w-100 mx-3 py-2">Cerrar Sesión</button>
                                 </li>
                             </ul>
                         </div>
