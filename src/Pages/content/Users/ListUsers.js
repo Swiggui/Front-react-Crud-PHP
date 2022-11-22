@@ -3,6 +3,7 @@ import NavbarLogged from "../../../components/HeaderLogged";
 import ApiInvoke from "../../../utils/ApiInvoke";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { confirm } from "react-confirm-box";
 
 const ListUsers = () => {
 
@@ -16,6 +17,13 @@ const ListUsers = () => {
 
     const deleteUser = async (e, id) => {
         e.preventDefault();
+
+        const confirmacion = await confirm("¿Desea eliminar a este usuario?");
+        if(confirmacion){
+            const respones = await ApiInvoke.invokeDELETE("/users?id="+id);
+            console.log(respones);
+            loadUsers();
+        }
     }
 
     useEffect(() => {
@@ -25,6 +33,7 @@ const ListUsers = () => {
         <div>
             <NavbarLogged />
             <div className="container-xxl">
+                <Link to={"/Users/Create"} className="btn btn-success w-100 px-5 py-2 my-3">Crear usuario</Link>
                 <h1 className="text-center">Lista de Usuarios</h1>
                 <div className="container mx-auto">
                     <table className="table table-info table-striped">
@@ -53,10 +62,10 @@ const ListUsers = () => {
                                             <td>{item.apellido}</td>
                                             <td>{item.correo}</td>
                                             <td>{item.nro_cel}</td>
-                                            <td>
-                                                <Link to={`/editar/${item._id}`} className="btn btn-outline-primary mx-3">Editar</Link>
+                                            <td className="action-buttons">
+                                                <Link to={`/Users/edit/${item.id_usuario}`} className="btn btn-outline-primary mx-3">Editar</Link>
                                                 <button
-                                                    onClick={(e) => deleteUser(e, item._id)}
+                                                    onClick={(e) => deleteUser(e, item.id_usuario)}
                                                     className="btn btn-outline-danger mx-3 "
                                                     data-bs-toggle="modal"
                                                     data-bs-target="#exampleModal">Eliminar</button>

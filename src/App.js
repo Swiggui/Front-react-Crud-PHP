@@ -11,6 +11,9 @@ import Contenidos from './Pages/content/Contenidos';
 import Musica from './Pages/content/Music';
 import Series from './Pages/content/Series';
 import ListUsers from './Pages/content/Users/ListUsers';
+import EditUsers from './Pages/content/Users/EditUsers';
+import CreateUsers from './Pages/content/Users/CreateUsers';
+
 
 
 function App() {
@@ -26,6 +29,8 @@ function App() {
           <Route path='/Music' exact element={<Musica/>}/>
           <Route path='/Series' exact element={<Series/>}/>
           <Route path='/Users' exact element={<ListUsers/>}/>
+          <Route path='/Users/edit/:id' exact element={<EditUsers/>}/>
+          <Route path='/Users/Create' exact element={<CreateUsers/>}/>
         </Routes>
       </Router>
     </Fragment>

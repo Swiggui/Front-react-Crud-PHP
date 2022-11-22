@@ -93,3 +93,11 @@ video{
     width: 50px !important;
     height: 38px !important;
 }
+
+label{
+    color: white;
+}
+
+.action-buttons a, .action-buttons button{
+    color: black !important;
+}
