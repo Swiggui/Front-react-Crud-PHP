@@ -64,7 +64,7 @@ const Musica = () => {
                                         <iframe style={{ borderRadius: '12px' }} src="https://open.spotify.com/embed/artist/4mHAu7NX2UNsnGXjviBD9e?utm_source=generator" allowFullScreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" width="100%" height="352.75" frameBorder={0} />
                                     </div>
                                     <div className="modal-footer">
-                                        <a href="https://open.spotify.com/artist/677sHrkjhB7IP4YwjzZyc4?si=v2bGz60cSAyOxea4PmSNtw" className="btn btn-outline-success mx-auto">Abrir en Spotify</a>
+                                        <a href="https://open.spotify.com/artist/4mHAu7NX2UNsnGXjviBD9e?si=LcWS-I3uRKm7YZ97aB6ePA" className="btn btn-outline-success mx-auto">Abrir en Spotify</a>
                                     </div>
                                 </div>
                             </div>
